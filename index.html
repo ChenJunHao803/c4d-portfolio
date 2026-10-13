@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chen · 作品集</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  header {
+    text-align: center;
+    padding: 70px 20px 30px;
+  }
+  header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+  }
+  header p {
+    margin-top: 10px;
+    color: #888;
+    font-size: 15px;
+  }
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 24px 16px 40px;
+    flex-wrap: wrap;
+  }
+  .filters button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: #1a1a1a;
+    cursor: pointer;
+    padding: 4px 2px;
+    font-family: inherit;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .filters button.active {
+    border-bottom: 1px solid #1a1a1a;
+  }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card.hidden { display: none; }
+  .thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb img, .thumb video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .thumb .play-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; height: 50px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .thumb .play-icon::after {
+    content: "▶";
+    color: #fff;
+    font-size: 18px;
+    margin-left: 3px;
+  }
+  .thumb .pdf-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+    text-align: center;
+  }
+  .meta { padding: 14px 16px 16px; }
+  .meta h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  .meta span {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #999;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+    font-size: 12px;
+  }
+  @media (max-width: 600px) {
+    header h1 { font-size: 26px; }
+    .grid { grid-template-columns: 1fr; }
+    .filters { gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>chen · 作品集</h1>
+  <p>产品动画 / 详情页 / 静帧渲染</p>
+</header>
+
+<div class="filters">
+  <button class="active" data-filter="all">全部</button>
+  <button data-filter="animation">产品动画</button>
+  <button data-filter="detail">详情页</button>
+  <button data-filter="render">静帧渲染</button>
+</div>
+
+<main>
+  <div class="grid">
+
+    <!-- 产品动画 -->
+    <a class="card" data-category="animation">
+      <div class="thumb">
+        <video src="产品动画/小米音箱产品动画.mp4" muted preload="metadata" playsinline></video>
+        <div class="play-icon"></div>
+      </div>
+      <div class="meta"><h3>小米音箱产品动画</h3><span>产品动画</span></div>
+    </a>
+
+    <div class="card" data-category="animation">
+      <div class="thumb">
+        <iframe src="https://player.bilibili.com/player.html?bvid=BV16Da36SETd&amp;page=1&amp;autoplay=0&amp;danmaku=0&amp;high_quality=1" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:100%;border:none;display:block;"></iframe>
+      </div>
+      <div class="meta"><h3>笔记本产品动画</h3><span>产品动画</span></div>
+    </div>
+
+    <!-- 详情页 -->
+    <a class="card" data-category="detail" href="详情页/云南白药详情页.pdf" target="_blank">
+      <div class="thumb"><div class="pdf-placeholder">PDF 详情页<br>点击查看</div></div>
+      <div class="meta"><h3>云南白药详情页</h3><span>详情页</span></div>
+    </a>
+
+    <a class="card" data-category="detail">
+      <div class="thumb"><img src="详情页/大疆详情页.png" alt="大疆详情页"></div>
+      <div class="meta"><h3>大疆详情页</h3><span>详情页</span></div>
+    </a>
+
+    <!-- 静帧渲染 -->
+    <a class="card" data-category="render">
+      <div class="thumb"><img src="静帧渲染图/加湿器.jpg" alt="加湿器"></div>
+      <div class="meta"><h3>加湿器</h3><span>静帧渲染</span></div>
+    </a>
+
+    <a class="card" data-category="render">
+      <div class="thumb"><img src="静帧渲染图/大疆云台.png" alt="大疆云台"></div>
+      <div class="meta"><h3>大疆云台</h3><span>静帧渲染</span></div>
+    </a>
+
+    <a class="card" data-category="render">
+      <div class="thumb"><img src="静帧渲染图/小风扇.jpg" alt="小风扇"></div>
+      <div class="meta"><h3>小风扇</h3><span>静帧渲染</span></div>
+    </a>
+
+    <a class="card" data-category="render">
+      <div class="thumb"><img src="静帧渲染图/电磁炉.png" alt="电磁炉"></div>
+      <div class="meta"><h3>电磁炉</h3><span>静帧渲染</span></div>
+    </a>
+
+    <a class="card" data-category="render">
+      <div class="thumb"><img src="静帧渲染图/耳机.jpg" alt="耳机"></div>
+      <div class="meta"><h3>耳机</h3><span>静帧渲染</span></div>
+    </a>
+
+  </div>
+</main>
+
+<footer>© chen · C4D Portfolio</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.filters button');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // 点击视频卡片播放/暂停
+  document.querySelectorAll('.card[data-category="animation"]').forEach(card => {
+    card.addEventListener('click', e => {
+      const video = card.querySelector('video');
+      if (video) {
+        e.preventDefault();
+        const playIcon = card.querySelector('.play-icon');
+        if (video.paused) {
+          video.play();
+          if (playIcon) playIcon.style.display = 'none';
+        } else {
+          video.pause();
+          if (playIcon) playIcon.style.display = 'flex';
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
